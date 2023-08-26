@@ -1,0 +1,18 @@
+local:
+  groups:
+    - status: Inactive
+      name: Durango Coders
+      meetup: https://www.meetup.com/Durango-Coders/
+regional:
+  groups:
+    - status: Active
+      name: West Slope Technologists
+      mailingList: http://eepurl.com/dppbSX
+      meetup: https://www.meetup.com/West-Slope-Technologists/
+      slack: https://join.slack.com/t/westslopetech/shared_invite/zt-3wv7wel1-2CGl7OPSB~PR942sfsV~EQ
+      website: http://westslopetechnologists.com/
+    - status: Active
+      name: TechYeet
+      meetup: https://www.meetup.com/TechYeet/
+      website: https://techyeet.org
+      note: Has a Durango Slack channel.

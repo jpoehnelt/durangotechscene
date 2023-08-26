@@ -1,0 +1,32 @@
+name: Webmentions
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [Received Webmention]
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  webmentions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+      - run: npm ci
+      - name: Fetch webmentions
+        env:
+          WEBMENTION_IO_TOKEN: ${{ secrets.WEBMENTION_IO_TOKEN }}
+        run: npm run webmentions
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: 'chore: update mentions'
+          branch: chore/webmentions
+          title: 'chore: update webmentions'
+          body: 'This PR updates the list of mentions in the repository.'
+          add-paths: |
+            src/data/*

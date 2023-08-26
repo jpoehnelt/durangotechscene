@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  body {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;    
+  }
+
+  body, header, footer {
+    @apply bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-50
+  }
+
+  header {
+    @apply border-b border-zinc-200 dark:border-zinc-700 py-4 px-4;
+  }
+
+  footer {
+    @apply border-t border-zinc-200 dark:border-zinc-700 py-4 px-4;
+  }
+
+  #main {
+    @apply py-8 px-4 mx-auto max-w-[800px] prose lg:prose-lg  xl:prose-xl dark:prose-invert;
+  }
+
+  li.active {
+    @apply underline;
+  }
+}

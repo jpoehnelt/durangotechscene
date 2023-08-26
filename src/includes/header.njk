@@ -1,0 +1,32 @@
+
+
+<header>
+  <div class="max-w-[800px] mx-auto mx-auto flex justify-between items-center	">
+    <div class="logo text-3xl">
+      <a href="/">Durango Tech Scene</a>
+    </div>
+    {% if collections.all.length > 1 %}
+      <div>
+
+        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
+
+          listElement: "ul",            
+          listItemElement: "li",        
+
+          listClass: "flex gap-4",  
+          listItemClass: "",  
+
+          listItemHasChildrenClass: "has-submenu", 
+          anchorClass: "",  
+          
+          activeListItemClass: "active",              
+          activeAnchorClass: "active",        
+
+          activeKey: eleventyNavigation.key,
+          showExcerpt: false
+
+        }) | safe }}
+      </div>
+    {% endif %}
+  </div>
+</header>
